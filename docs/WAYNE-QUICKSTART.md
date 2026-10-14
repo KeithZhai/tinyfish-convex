@@ -1,8 +1,8 @@
 # Wayne's install and test path
 
-The 0.2.0 candidate covers Search, Fetch, Read, Browser, durable Web Agent jobs and Browser Context Profiles. Check npm's latest version before installing; the release-verification record distinguishes published packages from local candidates.
+The published 0.2.0 release covers Search, Fetch, Read, Browser, durable Web Agent jobs and Browser Context Profiles. The release-verification record documents the public npm installation and real calls from an independent Convex project.
 
-1. Install the [0.2.0 candidate tarball](https://github.com/KeithZhai/tinyfish-convex/releases/download/v0.2.0-rc.1/tinyfish-convex-0.2.0-candidate.tgz), mount its config and set the deployment key as shown in the root README. The ordinary npm latest install remains 0.1.1 until publisher authentication is renewed.
+1. Run `npm install tinyfish-convex`, mount its config and set the deployment key as shown in the root README. Public npm latest is 0.2.0; use `npm install tinyfish-convex@0.2.0` to pin this tested release.
 2. Run the Search → Read recipe with a domain filter. Inspect good pages and per-URL failures.
 3. Mount `makeAgentAPI` with your normal auth. Start a task, retain its idempotency key and subscribe using `useQuery`. Refresh the page and recover by job ID.
 4. Cancel a running task. Confirm cancellation from the provider, preserving a completion that won the race.
