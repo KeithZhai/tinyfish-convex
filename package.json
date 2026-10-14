@@ -105,7 +105,7 @@
     "url": "https://github.com/KeithZhai/tinyfish-convex/issues"
   },
   "dependencies": {
-    "convex-helpers": "0.1.128",
+    "convex-helpers": "0.1.118",
     "node-html-markdown": "2.0.0",
     "node-html-parser": "6.1.13"
   }
