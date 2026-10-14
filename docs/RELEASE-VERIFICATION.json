@@ -1,0 +1,24 @@
+{
+  "source": "Public npm registry",
+  "version": "0.1.0",
+  "resolved": "https://registry.npmjs.org/tinyfish-convex/-/tinyfish-convex-0.1.0.tgz",
+  "integrity": "sha512-o6gA7SybchYt0XRuHj4JrMT8pNDw+URWdDZ70E6MlZMpNGNOvDpN65gsSZUSlngdm9qs/0PD6Q7fs+m5GuU73g==",
+  "componentMount": "fish (custom name)",
+  "passed": true,
+  "failures": 0,
+  "hasExpectedContent": true,
+  "pages": 2,
+  "sources": 7,
+  "verifiedAtUtc": "2026-10-14T00:41:04.668579+00:00",
+  "registryShasum": "2625a19e518d5a245529ffca38cae652fe412bba",
+  "matchesTestedTarball": true,
+  "defaultNpmInstallPassed": true,
+  "automatedTestsPassed": 57,
+  "liveAcceptanceCasesPassed": 8,
+  "browserRoundTrip": {
+    "sources": 10,
+    "pages": 3,
+    "mode": "Live Convex"
+  },
+  "scope": "Search and Fetch; stateless component"
+}

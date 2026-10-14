@@ -12,7 +12,10 @@
 | Installed component test helper | Passed in an isolated consumer |
 | Live Convex → TinyFish acceptance | 8/8 cases passed |
 | Shared-source live extraction comparison | TinyFish 5/5 and Firecrawl 5/5 phrase checks |
-| Real browser workflow | Connected local Convex Search and Fetch |
+| Real browser workflow | Live Search returned 10 sources; Fetch read 3 selected pages |
+| Public npm registry install | Default `npm install tinyfish-convex` resolved 0.1.0 |
+| Independent registry consumer, mounted as `fish` | Live round trip: 7 sources, 2 pages, zero failures, expected content present |
+| Registry artifact identity | SHA-1 matches the tested release tarball |
 | Local bridge boundary | Foreign Origin/Host, simple forms, oversized bodies and arbitrary function paths rejected |
 
 The live acceptance suite exercised the actual component through Convex and TinyFish's real REST APIs. It checked official-source domain filtering, research-paper year bounds, Markdown extraction from three documentation pages, a JavaScript-rendered quote page and a PDF, mixed success/404 batches, HTML, JSON document trees, selectors, metadata, links and all-failure batches.
@@ -24,3 +27,5 @@ The comparison records predetermined phrase presence and output character counts
 The real key was read from the user's authorized local TinyFish CLI configuration and sent to the local Convex environment over stdin. No key, local admin credential or private deployment state is included in the npm tarball or source archive.
 
 To rerun the real acceptance cases after setting the deployment key: `npm run test:live`. To inspect the demo: `npm run demo -- --use-cli-key` (or use a securely supplied shell environment key).
+
+The public registry verification reinstalled the package from a registry-resolved lockfile with a fresh npm cache in an independent Convex consumer, redeployed it under a custom component name, and ran real Search and Fetch. A separate default-version install also resolved 0.1.0. Machine-readable results: [RELEASE-VERIFICATION.json](RELEASE-VERIFICATION.json). The registry artifact SHA-1 is `2625a19e518d5a245529ffca38cae652fe412bba`.
