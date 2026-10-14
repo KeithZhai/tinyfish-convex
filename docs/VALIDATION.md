@@ -1,6 +1,6 @@
 # Validation record — October 13, 2026
 
-The 0.1.1 patch was reviewed with the checks below. Registry rows record the already published 0.1.0 release until the 0.1.1 registry consumer check is complete.
+The public 0.1.1 release passed the checks below, including a new project installed from the public npm registry with a fresh npm cache.
 
 | Check | Result |
 | --- | --- |
@@ -15,8 +15,8 @@ The 0.1.1 patch was reviewed with the checks below. Registry rows record the alr
 | Live Convex → TinyFish acceptance | 13/13 cases passed |
 | Shared-source live extraction comparison | TinyFish 5/5 and Firecrawl 5/5 phrase checks |
 | Real browser workflow | Domain-filtered Search returned 6 sources; Fetch read 3 pages; copy/download verified |
-| Public npm registry install | Default `npm install tinyfish-convex` resolved 0.1.0 |
-| Independent registry consumer, mounted as `fish` | Live round trip: 7 sources, 2 pages, zero failures, expected content present |
+| Public npm registry install | Default `npm install tinyfish-convex` resolved 0.1.1 |
+| Independent registry consumer, mounted as `fish` | Both direct and complete-recipe round trips: 6 sources, 2 pages, zero failures, expected content present |
 | Registry artifact identity | SHA-1 matches the tested release tarball |
 | Local bridge boundary | Foreign Origin/Host, simple forms, oversized bodies and arbitrary function paths rejected |
 
@@ -30,6 +30,6 @@ The real key was read from the user's authorized local TinyFish CLI configuratio
 
 To rerun the real acceptance cases after setting the deployment key: `npm run test:live`. To inspect the demo: `npm run demo -- --use-cli-key` (or use a securely supplied shell environment key).
 
-The public registry verification reinstalled the package from a registry-resolved lockfile with a fresh npm cache in an independent Convex consumer, redeployed it under a custom component name, and ran real Search and Fetch. A separate default-version install also resolved 0.1.0. Machine-readable results: [RELEASE-VERIFICATION.json](RELEASE-VERIFICATION.json). The registry artifact SHA-1 is `2625a19e518d5a245529ffca38cae652fe412bba`.
+The public registry verification started a new independent Convex project, installed with the ordinary `npm install tinyfish-convex` command and a fresh npm cache, mounted the component as `fish`, deployed it, and ran both real Search → Fetch and the complete research recipe. The lockfile resolves the registry tarball, and the downloaded registry bytes match the tested release artifact. Machine-readable results: [RELEASE-VERIFICATION.json](RELEASE-VERIFICATION.json). The registry artifact SHA-1 is `754441878135c905074fc543290796f6fed131ab`.
 
 Conditional reads have routing limits: the initial probe assumed an ETag would exist on a documentation page and a PDF, and failed that assumption. Direct REST and official documentation identified the fast-path restriction. The final acceptance uses the origin-provided Last-Modified on `example.com` and separately asserts the unsupported-path error. Missing validators do not mean content is unchanged.
