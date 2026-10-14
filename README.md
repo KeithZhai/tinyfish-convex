@@ -4,9 +4,13 @@ TinyFish Search, Fetch, Browser, Web Agent and Browser Context Profiles in one C
 
 ## Install
 
+The full 0.2.0 release candidate is available now. Public npm latest is still the Search/Fetch-only 0.1.1 release while publisher authentication is renewed. To test all capabilities:
+
 ```sh
-npm install tinyfish-convex
+npm install https://github.com/KeithZhai/tinyfish-convex/releases/download/v0.2.0-rc.1/tinyfish-convex-0.2.0-candidate.tgz
 ```
+
+[Candidate release and validation](https://github.com/KeithZhai/tinyfish-convex/releases/tag/v0.2.0-rc.1). After the stable registry release, the normal install command will be `npm install tinyfish-convex`.
 
 Requires Convex `^1.42.0`. Development of the example uses Node.js 22.12+.
 
