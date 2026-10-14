@@ -1,0 +1,11 @@
+import { ConvexHttpClient } from "convex/browser";
+import { makeFunctionReference } from "convex/server";
+const url = process.env.CONVEX_URL || process.env.VITE_CONVEX_URL;
+const token = process.env.CONVEX_AUTH_TOKEN;
+if (!url || !token) throw new Error("Set CONVEX_URL and CONVEX_AUTH_TOKEN. Configure the example's auth provider and TINYFISH_API_KEY on its deployment first.");
+const client = new ConvexHttpClient(url); client.setAuth(token);
+const search = await client.action(makeFunctionReference("web:searchDemo"), { query: "Convex components", include_domains: "docs.convex.dev" });
+if (!search.results.length) throw new Error("Search returned no sources");
+const pages = await client.action(makeFunctionReference("web:fetchDemo"), { urls: search.results.slice(0, 2).map(r => r.url), format: "markdown", per_url_timeout_ms: 45000 });
+if (!pages.results.length) throw new Error("Fetch returned no successful sources");
+console.log(JSON.stringify({ searchResults: search.results.length, fetched: pages.results.length, failed: pages.errors.length }));
