@@ -11,7 +11,7 @@ npm run demo -- --use-cli-key
 
 This explicitly reuses the key previously saved by `tinyfish auth login`. If you prefer your own secret-management workflow, set `TINYFISH_API_KEY` securely in the shell and run `npm run demo`.
 
-The command builds the package, prepares an anonymous local Convex deployment, sets the real key via stdin, and runs Convex with the Vite frontend. Open the local URL printed by Vite. Live mode is the default and requires no browser credentials. Search for a topic, select 1–10 sources, choose Markdown/HTML/JSON, and fetch. Inspect the content or the complete structured result.
+The command builds the package, prepares an anonymous local Convex deployment, sets the real key via stdin, and runs Convex with the Vite frontend. Open the local URL printed by Vite. Live mode is the default and requires no browser credentials. Search for a topic, optionally limit domains and explain what you need, select 1–10 sources, choose Markdown/HTML/JSON, and fetch. The purpose is forwarded to both Search and Fetch. Inspect, copy or download the content or complete structured result.
 
 Every live request goes to a fixed internal example action, then the installed component, then TinyFish's real REST API. The bridge invokes the Convex CLI without shell interpolation. It is bound to localhost, checks Host/Origin, requires JSON, and limits request-body size. API keys and deployment credentials stay outside frontend assets.
 
@@ -30,6 +30,7 @@ After the backend is configured:
 ```sh
 npx convex run web:search '{"query":"Convex components","include_domains":"docs.convex.dev"}'
 npx convex run web:fetch '{"urls":["https://docs.convex.dev/components/authoring"],"format":"markdown"}'
+npx convex run research:read '{"query":"Convex components authoring","include_domains":"docs.convex.dev","maxSources":3}'
 npm run test:live
 ```
 

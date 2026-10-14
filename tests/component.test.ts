@@ -47,6 +47,27 @@ describe("component actions and typed client", () => {
     expect(await t.action(ctx => tf.search(ctx, { query: "convex & tinyfish" }))).toEqual(searchResponse);
     http.mockResolvedValue(json(fetchResponse)); expect(await t.action(ctx => tf.fetch(ctx, { urls: ["https://example.com"] }))).toEqual(fetchResponse);
   });
+  it("runs the complete research recipe, deduplicating sources and retaining partial failures", async () => {
+    const sources = { ...searchResponse, results: [source, { ...source, position: 2 }, { ...source, position: 3, url: "https://example.org" }] };
+    const pages = { results: [page], errors: [{ url: "https://example.org", error: "page_not_found", status: 404 }] };
+    http.mockResolvedValueOnce(json(sources)).mockResolvedValueOnce(json(pages));
+    const { t } = setup();
+    const result = await t.action(makeFunctionReference<"action">("research:read"), { query: "test", purpose: "Read the API", maxSources: 2 });
+    expect(result).toEqual({ sources, pages });
+    expect(JSON.parse(String(http.mock.calls[1][1]?.body))).toMatchObject({ urls: ["https://example.com", "https://example.org"], purpose: "Read the API" });
+    expect(http).toHaveBeenCalledTimes(2);
+  });
+  it("skips a metered Fetch when the research recipe finds no sources", async () => {
+    const sources = { ...searchResponse, results: [], total_results: 0 };
+    http.mockResolvedValue(json(sources)); const { t } = setup();
+    expect(await t.action(makeFunctionReference<"action">("research:read"), { query: "test" })).toEqual({ sources, pages: null });
+    expect(http).toHaveBeenCalledTimes(1);
+  });
+  it("rejects an invalid source limit before spending a search call", async () => {
+    const { t } = setup();
+    expect(await errorData(t.action(makeFunctionReference<"action">("research:read"), { query: "test", maxSources: 11 }))).toMatchObject({ code: "INVALID_INPUT" });
+    expect(http).not.toHaveBeenCalled();
+  });
   it("preserves partial failures and selector retry hints", async () => {
     const response = { results: [page], errors: [{ url: "https://example.org", error: "selector_not_matched", unmatched_selectors: ["article"], candidate_selectors: ["main"] }], request_id: "partial-id" };
     http.mockResolvedValue(json(response)); const { t, component } = setup();
@@ -107,6 +128,19 @@ describe("HTTP failure semantics", () => {
     const { t, component } = setup(); const pending = errorData(t.action(component.fetch.getContents, { urls: ["https://example.com"] }));
     await vi.advanceTimersByTimeAsync(REQUEST_TIMEOUT_MS + 1);
     expect(await pending).toMatchObject({ code: "TIMEOUT" }); expect(vi.getTimerCount()).toBe(0);
+  });
+  it("reports TIMEOUT when headers arrive but the response body stalls", async () => {
+    vi.useFakeTimers();
+    http.mockImplementation(async (_url, init) => ({
+      ok: true, status: 200,
+      json: () => new Promise((_resolve, reject) => init!.signal!.addEventListener("abort", () => reject(new DOMException("Aborted", "AbortError")))),
+    }) as Response);
+    const { t, component } = setup();
+    const pending = errorData(t.action(component.fetch.getContents, { urls: ["https://example.com"] }));
+    await vi.advanceTimersByTimeAsync(REQUEST_TIMEOUT_MS + 1);
+    expect(await pending).toEqual({ code: "TIMEOUT", message: "TinyFish request exceeded 150 seconds" });
+    expect(vi.getTimerCount()).toBe(0);
+    expect(http).toHaveBeenCalledTimes(1);
   });
 });
 describe("semantic input validation before spending an API call", () => {

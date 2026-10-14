@@ -56,20 +56,50 @@ export const fetch = action({
 
 Use your application's normal authorization and quotas before exposing metered calls publicly. Use `internalAction` for a server-only workflow. Component actions become internal references in the host app and cannot be invoked directly from a frontend.
 
-To search and read sources in one action handler:
+## Search → read in one server action
+
+Save this as `convex/research.ts`. It limits the number of sources, deduplicates URLs, skips Fetch when Search returns no sources, and retains per-page failures. `purpose` gives TinyFish the context for both operations.
 
 ```ts
-const sources = await tf.search(ctx, {
-  query: "Convex components",
-  include_domains: "docs.convex.dev,github.com",
-  purpose: "Find official integration examples",
+import { ConvexError, v } from "convex/values";
+import { TinyFish, searchResponse, fetchResponse } from "tinyfish-convex";
+import { internalAction } from "./_generated/server";
+import { components } from "./_generated/api";
+
+const tinyfish = new TinyFish(components.tinyfish);
+
+/** A complete server-only Search → Fetch workflow. No auth provider is needed for CLI testing. */
+export const read = internalAction({
+  args: {
+    query: v.string(),
+    include_domains: v.optional(v.string()),
+    purpose: v.optional(v.string()),
+    maxSources: v.optional(v.number()),
+  },
+  returns: v.object({ sources: searchResponse, pages: v.union(v.null(), fetchResponse) }),
+  handler: async (ctx, { maxSources = 3, ...args }) => {
+    if (!Number.isSafeInteger(maxSources) || maxSources < 1 || maxSources > 10) {
+      throw new ConvexError({ code: "INVALID_INPUT", message: "maxSources must be an integer between 1 and 10" });
+    }
+    const sources = await tinyfish.search(ctx, args);
+    const urls = [...new Set(sources.results.map(source => source.url))].slice(0, maxSources);
+    if (!urls.length) return { sources, pages: null };
+    const pages = await tinyfish.fetch(ctx, {
+      urls, format: "markdown", links: true,
+      ...(args.purpose === undefined ? {} : { purpose: args.purpose }),
+    });
+    return { sources, pages };
+  },
 });
-const urls = sources.results.slice(0, 3).map(source => source.url);
-if (urls.length === 0) return { sources, pages: null };
-const pages = await tf.fetch(ctx, { urls, format: "markdown", links: true });
-// Process pages.errors as well as pages.results.
-return { sources, pages };
 ```
+
+After `npx convex dev` generates your bindings, run:
+
+```sh
+npx convex run research:read '{"query":"Convex components authoring","include_domains":"docs.convex.dev","purpose":"Understand component installation","maxSources":3}'
+```
+
+The response contains `sources` and `pages`. Inspect `pages.errors` even when some pages succeed. `pages` is `null` when no sources were found. This action is internal; your frontend can use an authenticated host wrapper.
 
 Direct calls are also available:
 
@@ -88,7 +118,8 @@ Argument names match TinyFish's REST API.
 | `tf.fetch(ctx, args)` | `urls`, `purpose`, `format`, `links`, `image_links`, `iframe_links`, `page_metadata`, `ttl`, `per_url_timeout_ms`, `include_selectors`, `exclude_selectors`, `if_none_match`, `if_modified_since`, `include_etag_and_last_modified` |
 
 - Fetch accepts 1–10 URLs and returns both `results[]` and `errors[]`. A page failure does not erase successful results; an all-failure batch still returns a Fetch response.
-- Selectors accept 1–20 entries. Conditional requests require one URL. Your app stores and replays validators.
+- Selectors accept 1–20 entries. A direct PDF/CSV URL has no HTML to scope and can return `selector_unsupported`.
+- Conditional requests require one URL and work only on TinyFish's fast path. Browser-rendered routes can return `conditional_unsupported`. Request `include_etag_and_last_modified: true`, save whichever origin validator is returned (`etag` or `last_modified`), then replay it with `if_none_match` or `if_modified_since`. Validators are optional; the origin may not provide one. Check `not_modified` before skipping processing. Your app owns storage and any explicit unconditional fallback.
 - `ttl` is forwarded to TinyFish. Omission accepts cached content; `0` prefers a live fetch, subject to upstream cache policy. The component adds no cache.
 - Search's `include_thumbnail` uses the documented `"true"` / `"false"` string. Its optional `fetch` is a JSON-encoded configuration object string. The demo uses separate calls so the user can choose sources.
 - Recency filters cannot be combined with calendar dates; paper search uses publication-year bounds.
@@ -113,7 +144,7 @@ npm run demo -- --use-cli-key
 
 Alternatively, supply `TINYFISH_API_KEY` securely in your shell and run `npm run demo`. The command prepares a local Convex deployment, sets its key via stdin, and starts the connected Vite demo. Open the URL printed by Vite.
 
-**Live Convex is the default.** Search, choose sources, select an output format, and fetch. Requests use the installed component through Convex. No API key or session JWT is entered in the browser. The local bridge accepts only localhost requests to two fixed internal actions and rejects foreign origins and simple form requests.
+**Live Convex is the default.** Search with optional domain and purpose controls, choose sources, select an output format, and fetch. Copy or download the returned content or complete JSON result. Requests use the installed component through Convex. No API key or session JWT is entered in the browser. The local bridge accepts only localhost requests to two fixed internal actions and rejects foreign origins and simple form requests.
 
 The demo's local bridge is developer tooling and is not included in a static production build. For a hosted app, use your usual Convex authentication with the public wrappers shown above. A separately labeled Sample mode remains available for offline previews. More details: [example guide](example/README.md).
 
@@ -145,4 +176,4 @@ export default defineConfig({
 });
 ```
 
-[Validation record](docs/VALIDATION.md) · [Small live comparison](docs/EVALUATION.md) · [Release procedure](PUBLISHING.md) · [Report an issue](https://github.com/KeithZhai/tinyfish-convex/issues)
+[Reviewer quick start](docs/WAYNE-QUICKSTART.md) · [Validation record](docs/VALIDATION.md) · [Small live comparison](docs/EVALUATION.md) · [Release procedure](PUBLISHING.md) · [Report an issue](https://github.com/KeithZhai/tinyfish-convex/issues)

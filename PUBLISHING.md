@@ -14,7 +14,7 @@ Before a release:
 npm publish --access public
 ```
 
-`prepublishOnly` performs the package checks. npm's own browser/OTP verification is completed by the account holder. The repository's generated bindings allow consumer builds and CI to run without deployment credentials.
+`prepublishOnly` performs the package checks. npm's own browser/passkey verification is completed by the account holder. A successful publish command can precede registry availability while npm reviews the artifact. Wait for `npm view tinyfish-convex@<version>` and the `latest` tag to resolve the intended version, then perform a fresh default-version registry install, verify its tarball hash, and run a real Search → Fetch in an independent consumer. Update the public release verification only after that passes. The repository's generated bindings allow consumer builds and CI to run without deployment credentials.
 
 ## Maintenance and directory submission
 

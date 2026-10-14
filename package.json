@@ -1,6 +1,6 @@
 {
   "name": "tinyfish-convex",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Typed TinyFish Search and Fetch actions for Convex.",
   "license": "MIT",
   "type": "module",
@@ -14,7 +14,10 @@
     "docs/DECISIONS.md",
     "docs/VALIDATION.md",
     "CHANGELOG.md",
-    "docs/EVALUATION.md"
+    "docs/EVALUATION.md",
+    "docs/WAYNE-QUICKSTART.md",
+    "docs/RELEASE-VERIFICATION.json",
+    "docs/LIVE-ACCEPTANCE-0.1.1.json"
   ],
   "sideEffects": false,
   "keywords": [

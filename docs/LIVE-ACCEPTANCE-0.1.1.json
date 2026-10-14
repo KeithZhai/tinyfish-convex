@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-14T00:53:52.757Z",
+  "transport": "Installed Convex component → real TinyFish REST API",
+  "cases": [
+    {
+      "name": "Search official sources",
+      "passed": true,
+      "durationMs": 2999,
+      "results": 6
+    },
+    {
+      "name": "Research-paper filters",
+      "passed": true,
+      "durationMs": 501,
+      "results": 10,
+      "papersWithAuthors": 10
+    },
+    {
+      "name": "Real Markdown extraction: docs, JavaScript and PDF",
+      "passed": true,
+      "durationMs": 4837,
+      "pages": [
+        {
+          "url": "https://docs.convex.dev/components/authoring",
+          "passed": true,
+          "characters": 29874
+        },
+        {
+          "url": "https://docs.tinyfish.ai/fetch-api/reference",
+          "passed": true,
+          "characters": 18796
+        },
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+          "passed": true,
+          "characters": 28236
+        },
+        {
+          "url": "https://quotes.toscrape.com/js/",
+          "passed": true,
+          "characters": 1080
+        },
+        {
+          "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "passed": true,
+          "characters": 14
+        }
+      ]
+    },
+    {
+      "name": "Batch preserves success beside 404",
+      "passed": true,
+      "durationMs": 1658,
+      "successes": 1,
+      "failures": 1,
+      "errorCode": "page_not_found"
+    },
+    {
+      "name": "HTML output",
+      "passed": true,
+      "durationMs": 1776,
+      "characters": 35644
+    },
+    {
+      "name": "JSON document tree",
+      "passed": true,
+      "durationMs": 3967,
+      "documentKeys": [
+        "children",
+        "type"
+      ]
+    },
+    {
+      "name": "Selector scoping and metadata",
+      "passed": true,
+      "durationMs": 2282,
+      "characters": 30756,
+      "metadataPresent": true,
+      "links": 86
+    },
+    {
+      "name": "All-URL failure stays a Fetch response",
+      "passed": true,
+      "durationMs": 657,
+      "failures": 1
+    },
+    {
+      "name": "Unicode Markdown content",
+      "passed": true,
+      "durationMs": 975,
+      "characters": 15143,
+      "unicodePreserved": true
+    },
+    {
+      "name": "Origin cache validator",
+      "passed": true,
+      "durationMs": 893,
+      "etagPresent": false,
+      "lastModifiedPresent": true
+    },
+    {
+      "name": "Unchanged conditional page",
+      "passed": true,
+      "durationMs": 689,
+      "notModified": true,
+      "contentIsNull": true
+    },
+    {
+      "name": "Unsupported conditional path is an explicit page failure",
+      "passed": true,
+      "durationMs": 576,
+      "errorCode": "conditional_unsupported"
+    },
+    {
+      "name": "Complete research action",
+      "passed": true,
+      "durationMs": 1641,
+      "sources": 6,
+      "pages": 2,
+      "failures": 0
+    }
+  ],
+  "passed": true
+}

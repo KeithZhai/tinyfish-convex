@@ -15,7 +15,11 @@ export async function requestJson(url: URL | string, apiKey: string, init: Reque
       headers: { Accept: "application/json", "X-API-Key": apiKey, ...init.headers } });
     let data: unknown;
     try { data = await response.json(); }
-    catch { throw new ConvexError({ code: response.ok ? "INVALID_RESPONSE" : "HTTP_ERROR", status: response.status, message: "TinyFish returned a non-JSON response" }); }
+    catch (error) {
+      // An aborted body read is a deadline failure, not malformed provider JSON.
+      if (controller.signal.aborted) throw error;
+      throw new ConvexError({ code: response.ok ? "INVALID_RESPONSE" : "HTTP_ERROR", status: response.status, message: "TinyFish returned a non-JSON response" });
+    }
     if (!response.ok) {
       const error = record(data) && record(data.error) ? data.error : {};
       const requestId = record(data) && typeof data.request_id === "string" ? data.request_id : response.headers.get("X-Request-ID");

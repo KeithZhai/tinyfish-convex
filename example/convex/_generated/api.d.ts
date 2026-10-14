@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as research from "../research.js";
 import type * as web from "../web.js";
 
 import type {
@@ -17,6 +18,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  research: typeof research;
   web: typeof web;
 }>;
 
