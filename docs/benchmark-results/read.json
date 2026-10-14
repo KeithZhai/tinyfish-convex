@@ -1,0 +1,478 @@
+{
+  "dateUtc": "2026-10-14T14:39:46.162Z",
+  "transport": "Built Convex component read action → TinyFish HTML → deterministic Markdown",
+  "cases": [
+    {
+      "id": "convex-authoring",
+      "url": "https://docs.convex.dev/components/authoring",
+      "extracted": true,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "allChecksPassed": true,
+      "characters": 29537,
+      "codeFencePairs": 25,
+      "checks": [
+        {
+          "alternatives": [
+            "defineComponent"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "convex.config.ts"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "ctx.runMutation"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "_generated"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "promise-en",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "extracted": true,
+      "checksPassed": 5,
+      "checksTotal": 5,
+      "allChecksPassed": true,
+      "characters": 28258,
+      "codeFencePairs": 17,
+      "checks": [
+        {
+          "alternatives": [
+            "pending"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "fulfilled"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "rejected"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "Promise.all"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "Promise.race"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "javascript-quotes",
+      "url": "https://quotes.toscrape.com/js/",
+      "extracted": true,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "allChecksPassed": true,
+      "characters": 1080,
+      "codeFencePairs": 0,
+      "checks": [
+        {
+          "alternatives": [
+            "Albert Einstein"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "J.K. Rowling"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "Jane Austen"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "pdf",
+      "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "extracted": true,
+      "checksPassed": 1,
+      "checksTotal": 1,
+      "allChecksPassed": true,
+      "characters": 14,
+      "codeFencePairs": 0,
+      "checks": [
+        {
+          "alternatives": [
+            "Dummy PDF"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "promise-zh",
+      "url": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "extracted": true,
+      "checksPassed": 5,
+      "checksTotal": 5,
+      "allChecksPassed": true,
+      "characters": 15159,
+      "codeFencePairs": 16,
+      "checks": [
+        {
+          "alternatives": [
+            "异步"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "待定"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "已兑现"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "已拒绝"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "Promise.all"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "python-structures",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "extracted": true,
+      "checksPassed": 5,
+      "checksTotal": 5,
+      "allChecksPassed": true,
+      "characters": 25467,
+      "codeFencePairs": 37,
+      "checks": [
+        {
+          "alternatives": [
+            "list.append",
+            "append(value"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "list.extend",
+            "extend(iterable"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "collections.deque"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "zip(*matrix)"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "ValueError"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "rust-ownership",
+      "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+      "extracted": true,
+      "checksPassed": 5,
+      "checksTotal": 5,
+      "allChecksPassed": true,
+      "characters": 22063,
+      "codeFencePairs": 10,
+      "checks": [
+        {
+          "alternatives": [
+            "ownership"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "stack"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "heap"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "drop"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "String::from"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "node-filesystem",
+      "url": "https://nodejs.org/api/fs.html",
+      "extracted": true,
+      "checksPassed": 5,
+      "checksTotal": 5,
+      "allChecksPassed": true,
+      "characters": 224682,
+      "codeFencePairs": 83,
+      "checks": [
+        {
+          "alternatives": [
+            "fs.readFile"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "node:fs/promises"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "AbortSignal"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "readFileSync"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "createReadStream"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "abort-controller",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+      "extracted": true,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "allChecksPassed": true,
+      "characters": 1379,
+      "codeFencePairs": 0,
+      "checks": [
+        {
+          "alternatives": [
+            "AbortSignal"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "AbortController()"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "abort()"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "fetch"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "raw-markdown",
+      "url": "https://raw.githubusercontent.com/KeithZhai/tinyfish-convex/v0.1.1/README.md",
+      "extracted": true,
+      "checksPassed": 5,
+      "checksTotal": 5,
+      "allChecksPassed": true,
+      "characters": 9697,
+      "codeFencePairs": 10,
+      "checks": [
+        {
+          "alternatives": [
+            "npm install tinyfish-convex"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "defineApp"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "TINYFISH_API_KEY"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "maxSources"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "conditional_unsupported"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "product-fields",
+      "url": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
+      "extracted": true,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "allChecksPassed": true,
+      "characters": 1507,
+      "codeFencePairs": 0,
+      "checks": [
+        {
+          "alternatives": [
+            "A Light in the Attic"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "51.77"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "22 available"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "a897fe39b1053632"
+          ],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "country-table",
+      "url": "https://www.scrapethissite.com/pages/simple/",
+      "extracted": true,
+      "checksPassed": 5,
+      "checksTotal": 5,
+      "allChecksPassed": true,
+      "characters": 23874,
+      "codeFencePairs": 0,
+      "checks": [
+        {
+          "alternatives": [
+            "Andorra"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "84000"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "Ottawa"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "33679000"
+          ],
+          "passed": true
+        },
+        {
+          "alternatives": [
+            "21515754"
+          ],
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "batchDurationMs": [
+    19070,
+    10090,
+    3127
+  ],
+  "rawMarkdownCodeSyntax": {
+    "tinyfish": {
+      "snippetFound": true,
+      "syntaxErrors": 6
+    },
+    "firecrawl": {
+      "snippetFound": true,
+      "syntaxErrors": 0
+    },
+    "read": {
+      "snippetFound": true,
+      "syntaxErrors": 0
+    }
+  },
+  "passed": true
+}

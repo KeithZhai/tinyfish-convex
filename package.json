@@ -1,7 +1,7 @@
 {
   "name": "tinyfish-convex",
-  "version": "0.1.1",
-  "description": "Typed TinyFish Search and Fetch actions for Convex.",
+  "version": "0.2.0",
+  "description": "TinyFish Search, Fetch, Browser, durable Web Agent jobs and saved Profiles for Convex.",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -17,7 +17,12 @@
     "docs/EVALUATION.md",
     "docs/WAYNE-QUICKSTART.md",
     "docs/RELEASE-VERIFICATION.json",
-    "docs/LIVE-ACCEPTANCE-0.1.1.json"
+    "docs/LIVE-ACCEPTANCE-0.1.1.json",
+    "docs/benchmark-results",
+    "docs/EVALUATION-0.1.0.md",
+    "docs/FULL-CAPABILITIES-0.2.0.json",
+    "docs/LIVE-ACCEPTANCE-0.2.0.json",
+    "docs/FRESH-CONSUMER-0.2.0.json"
   ],
   "sideEffects": false,
   "keywords": [
@@ -26,7 +31,10 @@
     "tinyfish",
     "search",
     "fetch",
-    "convex-component"
+    "convex-component",
+    "browser",
+    "web-agent",
+    "profiles"
   ],
   "exports": {
     ".": {
@@ -52,7 +60,7 @@
   },
   "scripts": {
     "codegen": "convex codegen --component-dir src/component",
-    "build": "node scripts/clean.mjs && tsc -p tsconfig.build.json",
+    "build": "node scripts/build.mjs",
     "typecheck": "tsc --noEmit && tsc -p example/tsconfig.json --noEmit",
     "test": "vitest run",
     "check": "npm run generate:contract && npm run build && npm run typecheck && npm test && npm run example:build",
@@ -62,26 +70,30 @@
     "prepack": "npm run build",
     "smoke:live": "node scripts/smoke-live.mjs",
     "verify:package": "node scripts/verify-package.mjs",
-    "generate:contract": "node scripts/generate-contract.mjs",
+    "generate:contract": "node scripts/generate-contract.mjs && node scripts/generate-agent-contract.mjs",
     "demo": "node scripts/demo-local.mjs",
     "test:live": "node scripts/acceptance-live.mjs",
-    "prepublishOnly": "npm run check"
+    "prepublishOnly": "npm run check",
+    "benchmark": "node benchmarks/run.mjs",
+    "benchmark:read": "node benchmarks/evaluate-read.mjs",
+    "test:capabilities": "node scripts/acceptance-capabilities.mjs"
   },
   "peerDependencies": {
     "convex": "^1.42.0"
   },
   "devDependencies": {
-    "convex": "^1.46.0",
-    "convex-test": "0.0.61",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.0",
     "@types/node": "^24.0.0",
-    "vite": "^8.0.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "@vitejs/plugin-react": "^6.0.0"
+    "@vitejs/plugin-react": "^6.0.0",
+    "convex": "^1.46.0",
+    "convex-test": "0.0.61",
+    "playwright-core": "1.58.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0",
+    "vitest": "^4.1.0"
   },
   "author": "Keith Zhai",
   "repository": {
@@ -91,5 +103,10 @@
   "homepage": "https://github.com/KeithZhai/tinyfish-convex#readme",
   "bugs": {
     "url": "https://github.com/KeithZhai/tinyfish-convex/issues"
+  },
+  "dependencies": {
+    "convex-helpers": "0.1.128",
+    "node-html-markdown": "2.0.0",
+    "node-html-parser": "6.1.13"
   }
 }

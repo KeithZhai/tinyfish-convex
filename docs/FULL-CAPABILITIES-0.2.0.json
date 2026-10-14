@@ -1,0 +1,87 @@
+{
+  "version": "0.2.0-candidate",
+  "testedAt": "2026-10-14T15:25:10.448Z",
+  "checks": [
+    {
+      "name": "Browser CDP: navigate and click pagination",
+      "passed": true,
+      "sessionCreated": true,
+      "page2": true
+    },
+    {
+      "name": "Browser termination is idempotent",
+      "passed": true
+    },
+    {
+      "name": "Create isolated non-default Profile",
+      "passed": true
+    },
+    {
+      "name": "Profile setup: log in to public sandbox and save state",
+      "passed": true,
+      "cookieCount": 1,
+      "domains": [
+        "toscrape.com"
+      ]
+    },
+    {
+      "name": "Profile metadata reflects saved domain",
+      "passed": true
+    },
+    {
+      "name": "Agent start mutation returns same job for a duplicate submission",
+      "passed": true
+    },
+    {
+      "name": "Durable Agent uses saved authenticated state and completes interactive extraction",
+      "passed": true,
+      "jobId": "j57cgmgmr1pn0xxz4e6jcwqnj98g9s5g",
+      "status": "COMPLETED",
+      "profileAttached": true,
+      "observedStates": [
+        "PENDING",
+        "RUNNING",
+        "COMPLETED"
+      ],
+      "stepsCount": 7,
+      "resultChecks": {
+        "signedIn": true,
+        "pageUrl": "https://quotes.toscrape.com/page/2/",
+        "author": "Marilyn Monroe",
+        "quoteMatchesGroundTruth": true
+      }
+    },
+    {
+      "name": "Agent steps persist and paginate",
+      "passed": true,
+      "steps": 7
+    },
+    {
+      "name": "Cancelling an already completed job preserves its result",
+      "passed": true
+    },
+    {
+      "name": "Real provider-accepted run cancellation",
+      "testedAt": "2026-10-14T15:32:16.861Z",
+      "jobId": "j57754krj25yh1ejvg5b06q4218g9bhc",
+      "before": "PENDING",
+      "after": "CANCELLED",
+      "providerRunAccepted": true,
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "resource": "profile-setup",
+      "ok": true
+    },
+    {
+      "resource": "browser",
+      "ok": true
+    },
+    {
+      "resource": "profile",
+      "ok": true
+    }
+  ]
+}

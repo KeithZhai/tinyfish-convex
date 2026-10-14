@@ -35,10 +35,13 @@ export function validateFetch(args: FetchArgs) {
     try { const u = new URL(raw); if (!["http:", "https:"].includes(u.protocol) || u.username || u.password) invalid("Fetch URLs must use HTTP(S) without embedded credentials"); }
     catch { invalid("Fetch URLs must use HTTP(S) without embedded credentials"); }
   }
-  nonempty("purpose", args.purpose, 2000); integer("ttl", args.ttl, 0);
-  integer("per_url_timeout_ms", args.per_url_timeout_ms, 1, 110000);
   nonempty("if_none_match", args.if_none_match); nonempty("if_modified_since", args.if_modified_since);
   if (args.urls.length !== 1 && (args.if_none_match !== undefined || args.if_modified_since !== undefined)) invalid("Conditional fetch requires exactly one URL");
+  validateFetchOptions(args);
+}
+export function validateFetchOptions(args: Omit<FetchArgs, "urls">) {
+  nonempty("purpose", args.purpose, 2000); integer("ttl", args.ttl, 0);
+  integer("per_url_timeout_ms", args.per_url_timeout_ms, 1, 110000);
   for (const name of ["include_selectors", "exclude_selectors"] as const) {
     const selectors = args[name];
     if (selectors !== undefined) {

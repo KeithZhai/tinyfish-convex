@@ -1,0 +1,18 @@
+{
+  "testedAt": "2026-10-14T15:49:49.240Z",
+  "source": "Verified local tarball (not npm registry)",
+  "version": "0.2.0",
+  "componentMount": "fish",
+  "searchSources": 6,
+  "pages": 2,
+  "errors": 0,
+  "agentStatus": "COMPLETED",
+  "result": {
+    "title": "Example Domain"
+  },
+  "steps": 6,
+  "jobList": true,
+  "idempotency": true,
+  "apiFactory": true,
+  "passed": true
+}

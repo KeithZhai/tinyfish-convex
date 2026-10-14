@@ -13,6 +13,7 @@ export async function requestJson(url: URL | string, apiKey: string, init: Reque
   try {
     const response = await fetch(url, { ...init, redirect: "error", signal: controller.signal,
       headers: { Accept: "application/json", "X-API-Key": apiKey, ...init.headers } });
+    if (response.status === 204) return null;
     let data: unknown;
     try { data = await response.json(); }
     catch (error) {

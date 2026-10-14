@@ -1,0 +1,25 @@
+{
+  "extraction": [
+    {"id":"convex-authoring","category":"documentation","url":"https://docs.convex.dev/components/authoring","checks":[["defineComponent"],["convex.config.ts"],["ctx.runMutation"],["_generated"]]},
+    {"id":"promise-en","category":"documentation","url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise","checks":[["pending"],["fulfilled"],["rejected"],["Promise.all"],["Promise.race"]]},
+    {"id":"javascript-quotes","category":"javascript","url":"https://quotes.toscrape.com/js/","checks":[["Albert Einstein"],["J.K. Rowling"],["Jane Austen"]]},
+    {"id":"pdf","category":"pdf","url":"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf","checks":[["Dummy PDF"]]},
+    {"id":"promise-zh","category":"unicode","url":"https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise","checks":[["异步"],["待定"],["已兑现"],["已拒绝"],["Promise.all"]]},
+    {"id":"python-structures","category":"code","url":"https://docs.python.org/3/tutorial/datastructures.html","checks":[["list.append","append(value"],["list.extend","extend(iterable"],["collections.deque"],["zip(*matrix)"],["ValueError"]]},
+    {"id":"rust-ownership","category":"code","url":"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html","checks":[["ownership"],["stack"],["heap"],["drop"],["String::from"]]},
+    {"id":"node-filesystem","category":"long-document","url":"https://nodejs.org/api/fs.html","checks":[["fs.readFile"],["node:fs/promises"],["AbortSignal"],["readFileSync"],["createReadStream"]]},
+    {"id":"abort-controller","category":"documentation","url":"https://developer.mozilla.org/en-US/docs/Web/API/AbortController","checks":[["AbortSignal"],["AbortController()"],["abort()"],["fetch"]]},
+    {"id":"raw-markdown","category":"raw-document","url":"https://raw.githubusercontent.com/KeithZhai/tinyfish-convex/v0.1.1/README.md","checks":[["npm install tinyfish-convex"],["defineApp"],["TINYFISH_API_KEY"],["maxSources"],["conditional_unsupported"]]},
+    {"id":"product-fields","category":"product","url":"https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html","checks":[["A Light in the Attic"],["51.77"],["22 available"],["a897fe39b1053632"]]},
+    {"id":"country-table","category":"table","url":"https://www.scrapethissite.com/pages/simple/","checks":[["Andorra"],["84000"],["Ottawa"],["33679000"],["21515754"]]}
+  ],
+  "search": [
+    {"id":"convex-env","query":"Convex components authoring environment variables","targetHost":"docs.convex.dev","targetPath":"/components/authoring"},
+    {"id":"python-lists","query":"Python list append versus extend official documentation","targetHost":"docs.python.org","targetPath":"/tutorial/datastructures.html"},
+    {"id":"rust-owner","query":"Rust ownership rules stack heap official book","targetHost":"doc.rust-lang.org","targetPath":"/book/ch04-01-what-is-ownership.html"},
+    {"id":"abort-fetch","query":"JavaScript AbortController abort fetch official documentation","targetHost":"developer.mozilla.org","targetPath":"/Web/API/AbortController"},
+    {"id":"node-readfile","query":"Node.js fs promises readFile AbortSignal official documentation","targetHost":"nodejs.org","targetPath":"/api/fs.html"},
+    {"id":"domain-filter","query":"Convex component publishing guide","domains":["docs.convex.dev"],"targetHost":"docs.convex.dev","targetPath":"/components/authoring"},
+    {"id":"chinese-promise","query":"中文 Promise 异步 状态 MDN 文档","targetHost":"developer.mozilla.org","targetPath":"/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise"}
+  ]
+}

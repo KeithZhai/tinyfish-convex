@@ -1,8 +1,12 @@
 import type { Infer } from "convex/values";
 import type { searchArgs, fetchArgs, searchResponse, fetchResponse } from "./validators.js";
+import type { readArgs, researchArgs } from "./workflow_validators.js";
 export type JsonValue = null | string | number | boolean | JsonValue[] | { [key: string]: JsonValue };
 export type SearchArgs = Infer<typeof searchArgs>;
 export type FetchArgs = Infer<typeof fetchArgs>;
+export type ReadArgs = Infer<typeof readArgs>;
+export type ResearchArgs = Infer<typeof researchArgs>;
+export type ResearchResponse = { sources: SearchResponse; pages: FetchResponse | null };
 export type SearchResult = Omit<Infer<typeof searchResponse>["results"][number], "fetch" | "fetch_error"> & {
   fetch?: JsonValue; fetch_error?: JsonValue;
 };
@@ -13,3 +17,19 @@ export type FetchResult = Omit<Infer<typeof fetchResponse>["results"][number], "
 };
 export type FetchResponse = Omit<Infer<typeof fetchResponse>, "results"> & { results: FetchResult[] };
 export type FetchError = FetchResponse["errors"][number];
+export type AgentArgs = Infer<typeof import("./agent_validators.js").agentArgs>;
+export type AgentRun = Infer<typeof import("./agent_validators.js").agentRun>;
+export type BrowserArgs = Infer<typeof import("./agent_validators.js").browserArgs>;
+export type BrowserSession = Infer<typeof import("./agent_validators.js").browserSession>;
+export type ProfileCreateArgs = Infer<typeof import("./agent_validators.js").profileCreateArgs>;
+export type ProfileUpdateArgs = Infer<typeof import("./agent_validators.js").profileUpdateArgs>;
+export type Profile = Infer<typeof import("./agent_validators.js").profile>;
+export type ProfileDetails = Infer<typeof import("./agent_validators.js").profileDetails>;
+export type ProfilesResponse = Infer<typeof import("./agent_validators.js").profilesResponse>;
+export type ProfileSetupArgs = Infer<typeof import("./agent_validators.js").profileSetupArgs>;
+export type ProfileSetup = Infer<typeof import("./agent_validators.js").profileSetup>;
+export type ProfileSaveArgs = Infer<typeof import("./agent_validators.js").profileSaveArgs>;
+export type ProfileSaved = Infer<typeof import("./agent_validators.js").profileSaved>;
+export type StartAgentArgs = Infer<typeof import("./job_validators.js").startAgentArgs>;
+export type AgentJob = Infer<typeof import("./job_validators.js").job>;
+export type AgentStep = Infer<typeof import("./job_validators.js").agentStep>;

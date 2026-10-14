@@ -47,12 +47,39 @@ describe("component actions and typed client", () => {
     expect(await t.action(ctx => tf.search(ctx, { query: "convex & tinyfish" }))).toEqual(searchResponse);
     http.mockResolvedValue(json(fetchResponse)); expect(await t.action(ctx => tf.fetch(ctx, { urls: ["https://example.com"] }))).toEqual(fetchResponse);
   });
+  it("reads HTML as Markdown in one request while retaining page errors and metadata", async () => {
+    const errors = [{ url: "https://example.org", error: "page_not_found", status: 404 }];
+    http.mockResolvedValue(json({ results: [{ ...page, format: "html", text: '<p>Use <code>API_KEY</code>.</p>', etag: '"v1"' }], errors }));
+    const { t, tf } = setup();
+    const result = await t.action(ctx => tf.read(ctx, { urls: ["https://example.com", "https://example.org"], ttl: 0 }));
+    expect(result.results[0]).toMatchObject({ text: 'Use `API_KEY`.', format: "markdown", etag: '"v1"' });
+    expect(result.errors).toEqual(errors);
+    expect(JSON.parse(String(http.mock.calls[0][1]?.body))).toMatchObject({ format: "html", ttl: 0 });
+    expect(http).toHaveBeenCalledTimes(1);
+  });
+  it("preserves an unchanged conditional Read with null content", async () => {
+    http.mockResolvedValue(json({ results: [{ ...page, format: "html", text: null, not_modified: true }], errors: [] }));
+    const { t, tf } = setup();
+    expect((await t.action(ctx => tf.read(ctx, { urls: ["https://example.com"], if_none_match: '"v1"' }))).results[0]).toMatchObject({ text: null, not_modified: true, format: "markdown" });
+  });
+  it("makes a conversion failure visible per page while preserving a successful page", async () => {
+    http.mockResolvedValue(json({ results: [{ ...page, format: "html", text: "<h1>Example</h1>" }, { ...page, url: "https://example.org", format: "json", text: { bad: true } }], errors: [] }));
+    const { t, tf } = setup(); const result = await t.action(ctx => tf.read(ctx, { urls: ["https://example.com", "https://example.org"] }));
+    expect(result.results).toHaveLength(1);
+    expect(result.errors).toEqual([{ url: "https://example.org", error: "markdown_conversion_failed" }]);
+    expect(http).toHaveBeenCalledTimes(1);
+  });
+  it("rejects invalid research read options before spending the Search call", async () => {
+    const { t, tf } = setup();
+    expect(await errorData(t.action(ctx => tf.research(ctx, { search: { query: "test" }, read: { include_selectors: [] } })))).toMatchObject({ code: "INVALID_INPUT" });
+    expect(http).not.toHaveBeenCalled();
+  });
   it("runs the complete research recipe, deduplicating sources and retaining partial failures", async () => {
     const sources = { ...searchResponse, results: [source, { ...source, position: 2 }, { ...source, position: 3, url: "https://example.org" }] };
     const pages = { results: [page], errors: [{ url: "https://example.org", error: "page_not_found", status: 404 }] };
-    http.mockResolvedValueOnce(json(sources)).mockResolvedValueOnce(json(pages));
+    http.mockResolvedValueOnce(json(sources)).mockResolvedValueOnce(json({ ...pages, results: [{ ...page, format: "html", text: "<h1>Example</h1>" }] }));
     const { t } = setup();
-    const result = await t.action(makeFunctionReference<"action">("research:read"), { query: "test", purpose: "Read the API", maxSources: 2 });
+    const result = await t.action(makeFunctionReference<"action">("research:read"), { search: { query: "test", purpose: "Read the API" }, maxSources: 2 });
     expect(result).toEqual({ sources, pages });
     expect(JSON.parse(String(http.mock.calls[1][1]?.body))).toMatchObject({ urls: ["https://example.com", "https://example.org"], purpose: "Read the API" });
     expect(http).toHaveBeenCalledTimes(2);
@@ -60,12 +87,12 @@ describe("component actions and typed client", () => {
   it("skips a metered Fetch when the research recipe finds no sources", async () => {
     const sources = { ...searchResponse, results: [], total_results: 0 };
     http.mockResolvedValue(json(sources)); const { t } = setup();
-    expect(await t.action(makeFunctionReference<"action">("research:read"), { query: "test" })).toEqual({ sources, pages: null });
+    expect(await t.action(makeFunctionReference<"action">("research:read"), { search: { query: "test" } })).toEqual({ sources, pages: null });
     expect(http).toHaveBeenCalledTimes(1);
   });
   it("rejects an invalid source limit before spending a search call", async () => {
     const { t } = setup();
-    expect(await errorData(t.action(makeFunctionReference<"action">("research:read"), { query: "test", maxSources: 11 }))).toMatchObject({ code: "INVALID_INPUT" });
+    expect(await errorData(t.action(makeFunctionReference<"action">("research:read"), { search: { query: "test" }, maxSources: 11 }))).toMatchObject({ code: "INVALID_INPUT" });
     expect(http).not.toHaveBeenCalled();
   });
   it("preserves partial failures and selector retry hints", async () => {

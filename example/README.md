@@ -1,4 +1,4 @@
-# Connected Search-to-source demo
+# TinyFish × Convex workflow lab
 
 ## Quick start
 
@@ -30,8 +30,20 @@ After the backend is configured:
 ```sh
 npx convex run web:search '{"query":"Convex components","include_domains":"docs.convex.dev"}'
 npx convex run web:fetch '{"urls":["https://docs.convex.dev/components/authoring"],"format":"markdown"}'
-npx convex run research:read '{"query":"Convex components authoring","include_domains":"docs.convex.dev","maxSources":3}'
+npx convex run research:read '{"search":{"query":"Convex components authoring","include_domains":"docs.convex.dev"},"maxSources":3}'
 npm run test:live
 ```
 
 The CLI calls use deployment credentials. Never give a deployment admin key to the frontend.
+
+## Agent, Browser and Profile
+
+The second workspace starts a real Agent, subscribes to its Convex status and current step, supports explicit cancellation/resuming and downloads results. The latest job ID survives refresh; no deployment key or browser state is stored in localStorage.
+
+Use Open browser to get a CDP connection and Close browser when finished. For saved state, create a non-default Profile, start its setup session, connect with your own CDP tool, log in and save the exact session. Setup connections stay in memory and unsaved state expires. Save reports cookie/domain counts and failures.
+
+The local lab's agent has a 15-step / 180-second budget. Its default task first navigates to page 2 of the public quotes sandbox, then extracts that page's first quote and author. It asks the upstream provider for structured output.
+
+For hosted apps, use agent.ts and resources.ts: derive owner IDs from identity, check per-resource grants and authorize explicit Profile IDs. Global default Profile and Vault access are refused by this shared-account example. Start with makeAgentAPI for public pages and add authorizeRequest when introducing account resources.
+
+Run `npm run test:capabilities` after configuring the backend for the reproducible Browser → login sandbox → Profile → Agent acceptance suite. It creates a disposable non-default Profile and closes/deletes its own fixtures. Browser state, CDP URLs and login passwords are omitted from reports.

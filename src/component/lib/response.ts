@@ -2,7 +2,7 @@ import { ConvexError, type ValidatorJSON } from "convex/values";
 import { searchShape, fetchShape } from "./response_shapes.js";
 import type { SearchResponse, FetchResponse } from "../../types.js";
 function invalid(): never { throw new ConvexError({ code: "INVALID_RESPONSE", message: "TinyFish response does not match the supported API contract" }); }
-function decode(value: unknown, schema: ValidatorJSON): unknown {
+export function decode(value: unknown, schema: ValidatorJSON): unknown {
   switch (schema.type) {
     case "any": return value;
     case "null": if (value !== null) invalid(); return value;

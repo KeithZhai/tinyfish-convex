@@ -14,11 +14,18 @@ function run(args,input){const r=spawnSync('npx',args,{cwd,env,input,encoding:'u
 const built=spawnSync('npm',['run','build'],{cwd,stdio:'inherit'});if(built.status)process.exit(built.status);
 console.log('Preparing a local Convex deployment…');
 const setup=run(['convex','dev','--once','--typecheck','enable']);
-if(setup.status && !/MissingEnvironmentVariables|TINYFISH_API_KEY/.test(setup.stderr)){console.error('Local Convex setup failed. Run npx convex dev to inspect deployment configuration.');process.exit(1);}
+if(setup.status && !/MissingEnvironmentVariables|TINYFISH_API_KEY/.test(setup.stderr)){
+ const busyPort=setup.stderr.match(/local backend is still running on port (\d+)/);
+ console.error(busyPort?`A local Convex backend is already using port ${busyPort[1]}. Stop that demo/backend before starting this one.`:'Local Convex setup failed. Run npx convex dev to inspect deployment configuration.');process.exit(1);
+}
 const configured=run(['convex','env','set','TINYFISH_API_KEY'],key);
 key=undefined;
 if(configured.status){console.error('Could not configure TINYFISH_API_KEY. Credential output was suppressed.');process.exit(1);}
 console.log('Real TinyFish key configured on local Convex. Starting the live browser demo.');
-const child=spawn('npx',['convex','dev','--start','npm run example:dev'],{cwd,env,stdio:'inherit'});
-for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>child.kill(signal));
+// A separate POSIX process group lets Ctrl-C stop npx, Convex, and Vite together.
+const grouped=process.platform!=='win32';
+const child=spawn('npx',['convex','dev','--start','npm run example:dev'],{cwd,env,stdio:'inherit',detached:grouped});
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>{
+ try { if(grouped&&child.pid)process.kill(-child.pid,signal);else child.kill(signal); } catch {}
+});
 child.on('exit',code=>process.exit(code??0));

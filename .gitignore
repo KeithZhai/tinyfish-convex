@@ -1,4 +1,5 @@
 node_modules/
+.dist-build-*/
 dist/
 example/dist/
 .env*
@@ -6,3 +7,7 @@ example/dist/
 .convex/
 work/
 *.tgz
+
+.benchmark-results/
+
+.capability-results/

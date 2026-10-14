@@ -1,0 +1,1583 @@
+{
+  "startedAtUtc": "2026-10-14T14:02:20.050Z",
+  "manifestSha256": "a8b2d6907c1cba4ea809a4dcdd12ba9c0baf397a601523d2b0a9a884796638be",
+  "transport": "Direct REST, single-URL pairs; no Convex CLI overhead",
+  "tinyfishAuth": "Configured user API key; account tier not ranked",
+  "firecrawlAuth": "Official keyless free tier",
+  "cachePolicy": {
+    "tinyfish": "ttl=0",
+    "firecrawl": "maxAge=0"
+  },
+  "limitations": [
+    "One exploratory pass; no general superiority claim",
+    "Lexical content checks are coverage proxies, not full semantic-quality scores",
+    "Expected-primary-source retrieval is not a complete relevance judgment",
+    "Account tiers and server paths differ; latency is observational",
+    "No measured dollar-cost comparison"
+  ],
+  "extraction": [
+    {
+      "id": "convex-authoring",
+      "category": "documentation",
+      "url": "https://docs.convex.dev/components/authoring",
+      "checks": [
+        [
+          "defineComponent"
+        ],
+        [
+          "convex.config.ts"
+        ],
+        [
+          "ctx.runMutation"
+        ],
+        [
+          "_generated"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 2357,
+          "accepted": true,
+          "extracted": true,
+          "characters": 29874,
+          "utf8Bytes": 29928,
+          "checksPassed": 4,
+          "checksTotal": 4,
+          "checks": [
+            {
+              "alternatives": [
+                "defineComponent"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "convex.config.ts"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "ctx.runMutation"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "_generated"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 30
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 6536,
+          "accepted": true,
+          "extracted": true,
+          "characters": 38310,
+          "utf8Bytes": 38428,
+          "checksPassed": 4,
+          "checksTotal": 4,
+          "checks": [
+            {
+              "alternatives": [
+                "defineComponent"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "convex.config.ts"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "ctx.runMutation"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "_generated"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 30
+        }
+      ]
+    },
+    {
+      "id": "promise-en",
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "checks": [
+        [
+          "pending"
+        ],
+        [
+          "fulfilled"
+        ],
+        [
+          "rejected"
+        ],
+        [
+          "Promise.all"
+        ],
+        [
+          "Promise.race"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 3106,
+          "accepted": true,
+          "extracted": true,
+          "characters": 53928,
+          "utf8Bytes": 54458,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "pending"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "fulfilled"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "rejected"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Promise.all"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Promise.race"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 18
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 1362,
+          "accepted": true,
+          "extracted": true,
+          "characters": 28236,
+          "utf8Bytes": 28250,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "pending"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "fulfilled"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "rejected"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Promise.all"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Promise.race"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 18
+        }
+      ]
+    },
+    {
+      "id": "javascript-quotes",
+      "category": "javascript",
+      "url": "https://quotes.toscrape.com/js/",
+      "checks": [
+        [
+          "Albert Einstein"
+        ],
+        [
+          "J.K. Rowling"
+        ],
+        [
+          "Jane Austen"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 3107,
+          "accepted": true,
+          "extracted": true,
+          "characters": 1080,
+          "utf8Bytes": 1121,
+          "checksPassed": 3,
+          "checksTotal": 3,
+          "checks": [
+            {
+              "alternatives": [
+                "Albert Einstein"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "J.K. Rowling"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Jane Austen"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 2170,
+          "accepted": true,
+          "extracted": true,
+          "characters": 1505,
+          "utf8Bytes": 1546,
+          "checksPassed": 3,
+          "checksTotal": 3,
+          "checks": [
+            {
+              "alternatives": [
+                "Albert Einstein"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "J.K. Rowling"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Jane Austen"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        }
+      ]
+    },
+    {
+      "id": "pdf",
+      "category": "pdf",
+      "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      "checks": [
+        [
+          "Dummy PDF"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 652,
+          "accepted": true,
+          "extracted": true,
+          "characters": 18,
+          "utf8Bytes": 18,
+          "checksPassed": 1,
+          "checksTotal": 1,
+          "checks": [
+            {
+              "alternatives": [
+                "Dummy PDF"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 371,
+          "accepted": true,
+          "extracted": true,
+          "characters": 14,
+          "utf8Bytes": 14,
+          "checksPassed": 1,
+          "checksTotal": 1,
+          "checks": [
+            {
+              "alternatives": [
+                "Dummy PDF"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        }
+      ]
+    },
+    {
+      "id": "promise-zh",
+      "category": "unicode",
+      "url": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "checks": [
+        [
+          "异步"
+        ],
+        [
+          "待定"
+        ],
+        [
+          "已兑现"
+        ],
+        [
+          "已拒绝"
+        ],
+        [
+          "Promise.all"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 2270,
+          "accepted": true,
+          "extracted": true,
+          "characters": 15143,
+          "utf8Bytes": 25145,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "异步"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "待定"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "已兑现"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "已拒绝"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Promise.all"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 17
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 1617,
+          "accepted": true,
+          "extracted": true,
+          "characters": 37987,
+          "utf8Bytes": 51399,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "异步"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "待定"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "已兑现"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "已拒绝"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Promise.all"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 17
+        }
+      ]
+    },
+    {
+      "id": "python-structures",
+      "category": "code",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "checks": [
+        [
+          "list.append",
+          "append(value"
+        ],
+        [
+          "list.extend",
+          "extend(iterable"
+        ],
+        [
+          "collections.deque"
+        ],
+        [
+          "zip(*matrix)"
+        ],
+        [
+          "ValueError"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 1227,
+          "accepted": true,
+          "extracted": true,
+          "characters": 34565,
+          "utf8Bytes": 34742,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "list.append",
+                "append(value"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "list.extend",
+                "extend(iterable"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "collections.deque"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "zip(*matrix)"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "ValueError"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 40
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 1159,
+          "accepted": true,
+          "extracted": true,
+          "characters": 26398,
+          "utf8Bytes": 26458,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "list.append",
+                "append(value"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "list.extend",
+                "extend(iterable"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "collections.deque"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "zip(*matrix)"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "ValueError"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 145
+        }
+      ]
+    },
+    {
+      "id": "rust-ownership",
+      "category": "code",
+      "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+      "checks": [
+        [
+          "ownership"
+        ],
+        [
+          "stack"
+        ],
+        [
+          "heap"
+        ],
+        [
+          "drop"
+        ],
+        [
+          "String::from"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 491,
+          "accepted": true,
+          "extracted": true,
+          "characters": 23134,
+          "utf8Bytes": 23302,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "ownership"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "stack"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "heap"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "drop"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "String::from"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 126
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 1805,
+          "accepted": true,
+          "extracted": true,
+          "characters": 28007,
+          "utf8Bytes": 28179,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "ownership"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "stack"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "heap"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "drop"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "String::from"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 15
+        }
+      ]
+    },
+    {
+      "id": "node-filesystem",
+      "category": "long-document",
+      "url": "https://nodejs.org/api/fs.html",
+      "checks": [
+        [
+          "fs.readFile"
+        ],
+        [
+          "node:fs/promises"
+        ],
+        [
+          "AbortSignal"
+        ],
+        [
+          "readFileSync"
+        ],
+        [
+          "createReadStream"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 2717,
+          "accepted": true,
+          "extracted": true,
+          "characters": 466238,
+          "utf8Bytes": 466608,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "fs.readFile"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "node:fs/promises"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "AbortSignal"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "readFileSync"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "createReadStream"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 105
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 7009,
+          "accepted": true,
+          "extracted": true,
+          "characters": 285646,
+          "utf8Bytes": 285722,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "fs.readFile"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "node:fs/promises"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "AbortSignal"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "readFileSync"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "createReadStream"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 4745
+        }
+      ]
+    },
+    {
+      "id": "abort-controller",
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+      "checks": [
+        [
+          "AbortSignal"
+        ],
+        [
+          "AbortController()"
+        ],
+        [
+          "abort()"
+        ],
+        [
+          "fetch"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 2305,
+          "accepted": true,
+          "extracted": true,
+          "characters": 1436,
+          "utf8Bytes": 1438,
+          "checksPassed": 4,
+          "checksTotal": 4,
+          "checks": [
+            {
+              "alternatives": [
+                "AbortSignal"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "AbortController()"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "abort()"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "fetch"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 10
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 1372,
+          "accepted": true,
+          "extracted": true,
+          "characters": 10153,
+          "utf8Bytes": 10309,
+          "checksPassed": 4,
+          "checksTotal": 4,
+          "checks": [
+            {
+              "alternatives": [
+                "AbortSignal"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "AbortController()"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "abort()"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "fetch"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        }
+      ]
+    },
+    {
+      "id": "raw-markdown",
+      "category": "raw-document",
+      "url": "https://raw.githubusercontent.com/KeithZhai/tinyfish-convex/v0.1.1/README.md",
+      "checks": [
+        [
+          "npm install tinyfish-convex"
+        ],
+        [
+          "defineApp"
+        ],
+        [
+          "TINYFISH_API_KEY"
+        ],
+        [
+          "maxSources"
+        ],
+        [
+          "conditional_unsupported"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 469,
+          "accepted": true,
+          "extracted": true,
+          "characters": 9680,
+          "utf8Bytes": 9694,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "npm install tinyfish-convex"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "defineApp"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "TINYFISH_API_KEY"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "maxSources"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "conditional_unsupported"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 10,
+          "codeSyntax": {
+            "snippetFound": true,
+            "syntaxErrors": 0
+          }
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 918,
+          "accepted": true,
+          "extracted": true,
+          "characters": 9563,
+          "utf8Bytes": 9577,
+          "checksPassed": 3,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "npm install tinyfish-convex"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "defineApp"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "TINYFISH_API_KEY"
+              ],
+              "passed": false
+            },
+            {
+              "alternatives": [
+                "maxSources"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "conditional_unsupported"
+              ],
+              "passed": false
+            }
+          ],
+          "allChecksPassed": false,
+          "codeFencePairs": 10,
+          "codeSyntax": {
+            "snippetFound": true,
+            "syntaxErrors": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": "product-fields",
+      "category": "product",
+      "url": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
+      "checks": [
+        [
+          "A Light in the Attic"
+        ],
+        [
+          "51.77"
+        ],
+        [
+          "22 available"
+        ],
+        [
+          "a897fe39b1053632"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 608,
+          "accepted": true,
+          "extracted": true,
+          "characters": 1344,
+          "utf8Bytes": 1348,
+          "checksPassed": 4,
+          "checksTotal": 4,
+          "checks": [
+            {
+              "alternatives": [
+                "A Light in the Attic"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "51.77"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "22 available"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "a897fe39b1053632"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 997,
+          "accepted": true,
+          "extracted": true,
+          "characters": 1809,
+          "utf8Bytes": 1813,
+          "checksPassed": 4,
+          "checksTotal": 4,
+          "checks": [
+            {
+              "alternatives": [
+                "A Light in the Attic"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "51.77"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "22 available"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "a897fe39b1053632"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        }
+      ]
+    },
+    {
+      "id": "country-table",
+      "category": "table",
+      "url": "https://www.scrapethissite.com/pages/simple/",
+      "checks": [
+        [
+          "Andorra"
+        ],
+        [
+          "84000"
+        ],
+        [
+          "Ottawa"
+        ],
+        [
+          "33679000"
+        ],
+        [
+          "21515754"
+        ]
+      ],
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 1916,
+          "accepted": true,
+          "extracted": true,
+          "characters": 22673,
+          "utf8Bytes": 22696,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "Andorra"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "84000"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Ottawa"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "33679000"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "21515754"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 1868,
+          "accepted": true,
+          "extracted": true,
+          "characters": 23115,
+          "utf8Bytes": 23139,
+          "checksPassed": 5,
+          "checksTotal": 5,
+          "checks": [
+            {
+              "alternatives": [
+                "Andorra"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "84000"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "Ottawa"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "33679000"
+              ],
+              "passed": true
+            },
+            {
+              "alternatives": [
+                "21515754"
+              ],
+              "passed": true
+            }
+          ],
+          "allChecksPassed": true,
+          "codeFencePairs": 0
+        }
+      ]
+    }
+  ],
+  "search": [
+    {
+      "id": "convex-env",
+      "query": "Convex components authoring environment variables",
+      "targetHost": "docs.convex.dev",
+      "targetPath": "/components/authoring",
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 1411,
+          "accepted": true,
+          "urls": [
+            "https://docs.convex.dev/components/authoring",
+            "https://docs.convex.dev/production/environment-variables",
+            "https://stack.convex.dev/type-safe-environment-variables-convex",
+            "https://www.youtube.com/watch?v=fefkbux1xQo&xstg=CAMSBhUDzO3xHw%3D%3D",
+            "https://news.convex.dev/components-authoring/"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 495,
+          "accepted": true,
+          "urls": [
+            "https://docs.convex.dev/components/authoring",
+            "https://docs.convex.dev/production/environment-variables",
+            "https://stack.convex.dev/type-safe-environment-variables-convex",
+            "https://www.youtube.com/watch?v=fefkbux1xQo",
+            "https://news.convex.dev/components-authoring/"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        }
+      ]
+    },
+    {
+      "id": "python-lists",
+      "query": "Python list append versus extend official documentation",
+      "targetHost": "docs.python.org",
+      "targetPath": "/tutorial/datastructures.html",
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 1205,
+          "accepted": true,
+          "urls": [
+            "https://stackoverflow.com/questions/252703/what-is-the-difference-between-pythons-list-methods-append-and-extend",
+            "https://www.geeksforgeeks.org/python/append-extend-python/",
+            "https://python-reference.readthedocs.io/en/latest/docs/list/extend.html",
+            "https://docs.python.org/3/tutorial/datastructures.html",
+            "https://sentry.io/answers/append-vs-extend-in-python/"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 4,
+          "reciprocalRank": 0.25
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 1323,
+          "accepted": true,
+          "urls": [
+            "https://stackoverflow.com/questions/252703/what-is-the-difference-between-pythons-list-methods-append-and-extend",
+            "https://www.geeksforgeeks.org/python/append-extend-python/",
+            "http://python-reference.readthedocs.io/en/latest/docs/list/extend.html",
+            "https://docs.python.org/3/tutorial/datastructures.html",
+            "https://www.reddit.com/r/learnpython/comments/156w7z8/append_vs_extend/"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 4,
+          "reciprocalRank": 0.25
+        }
+      ]
+    },
+    {
+      "id": "rust-owner",
+      "query": "Rust ownership rules stack heap official book",
+      "targetHost": "doc.rust-lang.org",
+      "targetPath": "/book/ch04-01-what-is-ownership.html",
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 3578,
+          "accepted": true,
+          "urls": [
+            "https://www.reddit.com/r/rust/comments/8kt5eq/ownership_vs_the_stack_and_heap/",
+            "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+            "https://thomascountz.com/2018/07/09/ownership-in-rust-part-1",
+            "https://www.youtube.com/watch?v=cbFroztJCGo",
+            "https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/second-edition/ch04-01-what-is-ownership.html"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 2,
+          "reciprocalRank": 0.5
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 457,
+          "accepted": true,
+          "urls": [
+            "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+            "https://www.reddit.com/r/rust/comments/ep0s60/how_is_ownership_independent_of_heap_vs_stack/",
+            "https://rust-book.cs.brown.edu/ch04-01-what-is-ownership.html",
+            "https://thomascountz.com/2018/07/09/ownership-in-rust-part-1",
+            "https://www.youtube.com/watch?v=cbFroztJCGo"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        }
+      ]
+    },
+    {
+      "id": "abort-fetch",
+      "query": "JavaScript AbortController abort fetch official documentation",
+      "targetHost": "developer.mozilla.org",
+      "targetPath": "/Web/API/AbortController",
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 415,
+          "accepted": true,
+          "urls": [
+            "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+            "https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort",
+            "https://blog.logrocket.com/complete-guide-abortcontroller/",
+            "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal",
+            "https://javascript.info/fetch-abort"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 965,
+          "accepted": true,
+          "urls": [
+            "https://developer.mozilla.org/en-US/docs/Web/API/AbortController",
+            "https://javascript.info/fetch-abort",
+            "https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort",
+            "https://medium.com/@AlexanderObregon/canceling-fetch-requests-in-javascript-with-abortcontroller-98c11d2ab54e",
+            "https://www.youtube.com/watch?v=VdAlFWBUGV4"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        }
+      ]
+    },
+    {
+      "id": "node-readfile",
+      "query": "Node.js fs promises readFile AbortSignal official documentation",
+      "targetHost": "nodejs.org",
+      "targetPath": "/api/fs.html",
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 2408,
+          "accepted": true,
+          "urls": [
+            "https://nodejs.org/api/fs.html",
+            "https://docs.deno.com/api/node/fs/promises/",
+            "https://www.w3schools.com/nodejs/nodejs_filesystem.asp",
+            "https://bun.com/reference/node/fs/promises",
+            "https://stackoverflow.com/questions/40593875/using-filesystem-in-node-js-with-async-await"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 514,
+          "accepted": true,
+          "urls": [
+            "https://nodejs.org/api/fs.html",
+            "https://docs.deno.com/api/node/fs/promises/",
+            "https://www.w3schools.com/nodejs/nodejs_filesystem.asp",
+            "https://bun.com/reference/node/fs/promises",
+            "https://stackoverflow.com/questions/40593875/using-filesystem-in-node-js-with-async-await"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        }
+      ]
+    },
+    {
+      "id": "domain-filter",
+      "query": "Convex component publishing guide",
+      "domains": [
+        "docs.convex.dev"
+      ],
+      "targetHost": "docs.convex.dev",
+      "targetPath": "/components/authoring",
+      "observations": [
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 420,
+          "accepted": true,
+          "urls": [
+            "https://docs.convex.dev/components/authoring",
+            "https://docs.convex.dev/components/overview",
+            "https://docs.convex.dev/production/hosting/vercel",
+            "https://docs.convex.dev/quickstart/nextjs",
+            "https://docs.convex.dev/production/hosting/custom"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1,
+          "domainFilterPassed": true
+        },
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 1625,
+          "accepted": true,
+          "urls": [
+            "https://docs.convex.dev/components/authoring",
+            "https://docs.convex.dev/components/overview",
+            "https://docs.convex.dev/production/hosting/vercel",
+            "https://docs.convex.dev/quickstart/nextjs",
+            "https://docs.convex.dev/production/hosting/custom"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1,
+          "domainFilterPassed": true
+        }
+      ]
+    },
+    {
+      "id": "chinese-promise",
+      "query": "中文 Promise 异步 状态 MDN 文档",
+      "targetHost": "developer.mozilla.org",
+      "targetPath": "/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "observations": [
+        {
+          "provider": "tinyfish",
+          "status": 200,
+          "durationMs": 1349,
+          "accepted": true,
+          "urls": [
+            "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+            "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Async_JS/Promises",
+            "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+            "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises",
+            "https://web.dev/articles/promises?hl=zh-cn"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        },
+        {
+          "provider": "firecrawl",
+          "status": 200,
+          "durationMs": 480,
+          "accepted": true,
+          "urls": [
+            "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+            "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Async_JS/Promises",
+            "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+            "https://web.dev/articles/promises?hl=zh-cn",
+            "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises"
+          ],
+          "returned": 5,
+          "distinctUrls": 5,
+          "targetFound": true,
+          "firstTargetRank": 1,
+          "reciprocalRank": 1
+        }
+      ]
+    }
+  ],
+  "finishedAtUtc": "2026-10-14T14:03:04.661Z"
+}

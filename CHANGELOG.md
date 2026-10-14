@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0
+
+- Browser session creation/termination and Profile metadata/setup/save/cancel APIs, generated from official contracts.
+- Durable Agent jobs with atomic start/key deduplication, reactive status/steps, owner checks, cancellation, retry/watchdog recovery, reconciliation and large-result file storage.
+- Authenticated API factory and example resource grants; interactive local demo with real Convex subscriptions.
+
+- `read`: HTML-based Markdown conversion that retains code, table fields and relative citations; one upstream Fetch request, no hidden retry.
+- `research`: packaged Search → Read composition with early option validation, deduplication, source limits and empty/partial-result handling.
+- Fixed raw Markdown preservation and fragmented inline-code rendering, with real code-syntax checks and a 12-page paired evaluation.
+- Expanded comparison to seven expected-primary-source search tasks; results and remaining gaps are documented without an overall superiority claim.
+- Build stages compilation before replacing outputs, preserving the last working component on failure; demo exit cleans its POSIX process group.
+
 ## 0.1.1
 
 - Correctly report TIMEOUT when response headers arrive but the body stalls.
